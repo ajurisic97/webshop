@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WebShopAYuri.DbModels.Proizvod>
+
+@{
+    ViewData["Title"] = "SviProizvodi";
+}
+
+<h1>SviProizvodi</h1>
+
+<p>
+    
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Naziv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cijena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Img)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kategorija)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marka)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cijena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Img)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategorija.Idkategorija)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<script>
+    axios.get('/api/proizvodi').then(response => console.log(response.data));
+
+    function dodajSve(data) {
+        var item = document.createElement(HTMLDivElement);
+        item.id = "item";
+
+
+    }
+</script>

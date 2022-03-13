@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "Naslovnica";
+}
+@*Sve
+    unutar
+    ovog
+    je bezveze
+    dodano samo testira bezveze
+*@
+<!-- Carousel -->
+<link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet" />
+<link rel="stylesheet" href="fonts/icomoon/style.css">
+<link rel="stylesheet" href="css/style.css">
+<script>
+    var a;
+    axios.get('/api/proizvodi').then(response => a = response);
+
+
+
+</script>
+<style>
+
+    .btn {
+        padding: 14px 20px;
+        border-radius: 0;
+    }
+
+        .btn.btn-white {
+            background: #fff;
+            color: #000;
+        }
+
+    .col-md-8 {
+        margin-bottom: 50px;
+    }
+
+    .intro-section {
+        height: 515px;
+    }
+
+    h1, .h1 {
+        margin-top: 200px;
+        color: white;
+        font-size: 60px;
+        font-weight: 700;
+        font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    h3, .h3 {
+        font-size: 14px;
+    }
+</style>
+
+<!-- Wrapper for slides -->
+<div class="intro-section" style="background-image: url('https://iphone-center.mn/wp-content/uploads/2018/10/why-iphone.png'); ">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 mx-auto text-center" data-aos="fade-up">
+                <h1>Mobile shop</h1>
+                <br />
+                <br />
+                <p><a href="#" class="btn btn-primary">More</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-7 mb-5 text-center mx-auto">
+                <span class="caption">PONUDA</span>
+                <h2 class="text-black">Trenutno u ponudi</h2>
+            </div>
+        </div>
+            <div class="row auctions-entry">
+
+                @model IEnumerable<WebShopAYuri.DbModels.Proizvod>
+                @foreach (var item in Model)
+                {
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="item">
+                            <div>
+                                <a href="jedanProizvod.cshtml"><img src="https://www.hgshop.hr/articleImages/80786-878.jpg?preset=product" alt="Image" class="img-fluid"></a>
+                            </div>
+                            <div class="p-4">
+                                <h3><a href="#">@Html.DisplayFor(modelItem => item.Marka) - @Html.DisplayFor(modelItem => item.Naziv)</a></h3>
+                                <div class="d-flex mb-2">
+                                    <span>Cijena:</span>
+                                    <span class="ml-auto">@Html.DisplayFor(modelItem => item.Cijena) kn</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+    </div>
+</div>

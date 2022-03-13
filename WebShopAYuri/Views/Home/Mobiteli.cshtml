@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Naslovnica";
+}
+@*Sve
+    unutar
+    ovog
+    je bezveze
+    dodano samo testira bezveze
+*@
+<!-- Carousel -->
+<link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet" />
+<link rel="stylesheet" href="fonts/icomoon/style.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+    .btn {
+        padding: 14px 20px;
+        border-radius: 0;
+    }
+
+        .btn.btn-white {
+            background: #fff;
+            color: #000;
+        }
+
+    .col-md-8 {
+        margin-bottom: 50px;
+    }
+
+    .intro-section {
+        height: 515px;
+    }
+
+    h1, .h1 {
+        margin-top: 150px;
+        color: white;
+        font-size: 60px;
+        font-weight: 700;
+        font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    h3, .h3 {
+        font-size: 14px;
+    }
+</style>
+
+<!-- Wrapper for slides -->
+<div class="site-section">
+    <div class="intro-section" style="background-image: url('https://cdn.vox-cdn.com/thumbor/XAg2tROQEtnBxN5gwpbZejt1s_U=/0x0:2040x1360/1200x800/filters:focal(857x517:1183x843)/cdn.vox-cdn.com/uploads/chorus_image/image/61520649/jbareham_180424_2499_0007.0.jpg'); ">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-7 mx-auto text-center" data-aos="fade-up">
+                    <h1>Mobiteli</h1>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-7 mb-5 text-center mx-auto">
+                    <span class="caption"></span>
+                    <h2 class="text-black"></h2>
+                </div>
+            </div>
+            <div class="row auctions-entry">
+                @model IEnumerable<WebShopAYuri.DbModels.Proizvod>
+                @foreach (var item in Model)
+                {
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="item">
+                            <div>
+                                <a href="item-single.html"><img src="https://www.hgshop.hr/articleImages/80786-878.jpg?preset=product" alt="Image" class="img-fluid"></a>
+                            </div>
+                            <div class="p-4">
+                                @*MORAM NAPRAVITI API CONTROLLER S KOJIM CU DOHVATITI PODATAK RUTE /proizvod/dohvati/ID___*@
+                                <h3><a href="proizvod/dohvati/@Html.DisplayFor(modelItem=> item.Idproizvod)">@Html.DisplayFor(modelItem => item.Marka) - @Html.DisplayFor(modelItem => item.Naziv)</a></h3>
+                                <div class="d-flex mb-2">
+                                    <span>Cijena:</span>
+                                    <span class="ml-auto">@Html.DisplayFor(modelItem => item.Cijena) kn</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
